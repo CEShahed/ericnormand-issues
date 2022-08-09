@@ -2,7 +2,10 @@ import std/[strutils, algorithm, unittest]
 
 
 func reverseWords(s: string): string =
-  s.split(" ").reversed.join " "
+  s
+  .split(" ") # step 1
+  .reversed # step 2
+  .join " " # step 3
 
 suite "tests":
   test "my name is Eric.":

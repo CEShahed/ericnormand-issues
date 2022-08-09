@@ -7,17 +7,17 @@ func chunk(sentence: string, every: int): seq[string] =
 
 func regroup(licence: string, chunkSize: int): string =
   let
-    letters = licence.replace("-", "")
+    letters = licence.replace("-", "") # step 1
     reminder = letters.len mod chunkSize
-    firstPartSize =
+    firstPartSize =                    # step 2
       if reminder == 0: chunkSize
       else: reminder
 
   (
     letters[0..<firstPartSize] &
     letters[firstPartSize..^1].chunk(chunkSize)
-  )
-  .join "-"
+  ) # step 3
+  .join "-" # step 4
 
 
 suite "helpers":

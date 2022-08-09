@@ -1,8 +1,8 @@
 import std/[unittest, math]
 
 func simplify(a, b: int): tuple[a, b: int] =
-  let d = gcd(a, b)
-  (a div d, b div d)
+  let d = gcd(a, b) # step 1
+  (a div d, b div d) # step 2
 
 
 suite "tests":
