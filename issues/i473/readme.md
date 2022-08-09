@@ -1,4 +1,4 @@
-# issue 472
+# issue 473
 [link](https://ericnormand.me/issues/473)
 
 ## English
