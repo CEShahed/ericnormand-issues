@@ -9,8 +9,8 @@ after every move rotate the cursor `90` degrees and repeat.
 it means on the first try, 
   go toward `Y+`, 
   then `X+`, 
-  then Y-, 
-  then X-, 
+  then `Y-`, 
+  then `X-`, 
   then repeat till the end.
 
 ## Persian
