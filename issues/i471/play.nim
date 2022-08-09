@@ -1,7 +1,7 @@
 import std/[strutils, unittest]
 
 
-func chunck(sentence: string, every: int): seq[string] =
+func chunk(sentence: string, every: int): seq[string] =
   for i in countup(0, sentence.high, every):
     result.add sentence[i ..< i+every]
 
@@ -15,14 +15,14 @@ func regroup(licence: string, chunkSize: int): string =
 
   (
     letters[0..<firstPartSize] &
-    letters[firstPartSize..^1].chunck(chunkSize)
+    letters[firstPartSize..^1].chunk(chunkSize)
   )
   .join "-"
 
 
 suite "helpers":
   test "every":
-    check "123456789".chunck(3) == @["123", "456", "789"]
+    check "123456789".chunk(3) == @["123", "456", "789"]
 
 suite "problem":
   test "A5-GG-B88 :: 3":
