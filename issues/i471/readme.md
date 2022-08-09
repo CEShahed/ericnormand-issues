@@ -26,10 +26,8 @@
 ## Data Transformation - ( مراحل تغییر داده )
 
 ```nim
-# inputs
-licence: "A5-GG-B88", chunckSize: 3
+licence: "A5-GG-B88", chunckSize: 3 # inputs
 
-# steps
 "A5-GG-B88" # <-- input
 "A5GGB88" # step 1
 ## becuase "A5GGB88" has length of 7 and the chunk size is 3, the first chunk size is 1 (7 mod 3 == 1) <-- step 2
