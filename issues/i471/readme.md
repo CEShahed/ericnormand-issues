@@ -6,7 +6,7 @@
 1. First of all, we remove the `-`s
 2. then we calculate size of first part (since only first part may change)
 3. then we chunk the editted licence ( the one without `-`s from ) into desired
-4. join the juncks with `-` in between
+4. join the chunks with `-` in between
 
 ## فارسی
 **مرحله 1**:
@@ -26,10 +26,7 @@
 ## Data Transformation - ( مراحل تغییر داده )
 
 ```nim
-# inputs
-licence: "A5-GG-B88", chunckSize: 3
-
-# --- steps
+licence: "A5-GG-B88", chunckSize: 3 # inputs
 
 "A5-GG-B88" # <-- input
 "A5GGB88" # step 1
