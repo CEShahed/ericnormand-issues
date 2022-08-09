@@ -13,7 +13,14 @@ func move(moves: openArray[int]): Point =
 
 
 suite "tests":
-  check move([]) == (0, 0) # No motion
-  check move([10]) == (0, 10) # move 10 straight north
-  check move([10, 2]) == (2, 10)
-  check move([10, 2, 3]) == (2, 7)
+  test "no move":
+    check move([]) == (0, 0) # No motion
+  
+  test "10":
+    check move([10]) == (0, 10) # move 10 straight north
+  
+  test "10, 2":
+    check move([10, 2]) == (2, 10)
+  
+  test "10 2 3":
+    check move([10, 2, 3]) == (2, 7)
