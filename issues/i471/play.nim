@@ -1,22 +1,24 @@
 import std/[strutils, unittest]
 
 
+# --- helpers
 func chunk(sentence: string, every: int): seq[string] =
   ## chunks the `sentence` into parts with len of `every`
   for i in countup(0, sentence.high, every):
     result.add sentence[i ..< i+every]
 
 func modCeil(a, b: int): int =
-  # like normal `mod` operator but the result 0 is replaced with divisor
+  ## like normal `mod` operator but the result 0 is replaced with divisor
   let r = a mod b
   if r == 0: b
   else: r
 
+# --- main
 func regroup(licence: string, chunkSize: int): string =
   let
-    letters = licence.replace("-", "") # step 1
-    firstPartSize = modCeil(letters.len, chunkSize)  # step 2
-  
+    letters = licence.replace("-", "")                      # step 1
+    firstPartSize = modCeil(letters.len, chunkSize)         # step 2
+
   (
     letters[0..<firstPartSize] &
     letters[firstPartSize..^1].chunk(chunkSize)
@@ -24,6 +26,7 @@ func regroup(licence: string, chunkSize: int): string =
   .join "-" # step 4
 
 
+# --- tests
 suite "helpers":
   test "every":
     check "123456789".chunk(3) == @["123", "456", "789"]
@@ -47,4 +50,3 @@ suite "problem":
 
   test "IIO :: 7":
     check regroup("IIO", 7) == "IIO"
-
