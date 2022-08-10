@@ -1,14 +1,31 @@
-# issue 460 - Rearrange sentence
-[link](https://ericnormand.me/issues/purelyfunctional-tv-newsletter-460-interface-polymorphism)
+# issue 460 - Rearrange sentence :: [link](https://ericnormand.me/issues/purelyfunctional-tv-newsletter-460-interface-polymorphism)
 
-## English
+## Description
+
+Here's a neat, yet contrived, text processing problem. 
+
+The words in your sentence have been mixed up.
+Luckily, there's a number embedded in each word that says its position in the sentence. 
+ 
+Write a function that puts the words in the right order and removes the position digits.
+
+### Examples:
+```clj
+(rearrange "World2! He1llo,") ;=> "Hello, World!"
+(rearrange "fo3r 5more Elegan1t 2weapons age.7 civil6ized a4") ;=> "Elegant weapons for a more civilized age."
+(rearrange "") ;=> ""
+```
+
+## Idea
+
+### English
 1. split sentence into parts by space ` ` character
 2. build an empty sequence of empty strings with the length as the same as parts :: called `newSentence`
 3. extract word and position number of each part
 4. place every word at it's position
 5. join the words in `newSentence` by space ` ` character
 
-## فارسی
+### فارسی
 **مرحله 1**:
 جمله داده شده با کاراکتر فاصله به چند بخش تقسیم میکنیم
 
@@ -26,7 +43,7 @@
 کلمات جای گذاری شده را با کاراکتر فاصله بهم مچسبانیم
 
 
-## Data Transformation - مراحل تغییر داده
+### Data Transformation - مراحل تغییر داده
 ```nim
 "fo3r 5more Elegan1t 2weapons age.7 civil6ized a4" # <-- input
 @["fo3r", "5more", "Elegan1t", "2weapons", "age.7", "civil6ized", "a4"] # <-- step 1

@@ -1,14 +1,29 @@
-# issue 462 - Odd one out
-[link](https://ericnormand.me/issues/purelyfunctional-tv-newsletter-462-purelyfunctional-tv-migration)
+# issue 462 - Odd one out :: [link](https://ericnormand.me/issues/purelyfunctional-tv-newsletter-462-purelyfunctional-tv-migration)
 
-## English
+# Description
+
+Write a function that takes a list of words (Strings). 
+The function should return true if exactly 1 word differs in length from the others. 
+It should return false in all other cases.
+
+### Examples:
+
+```clj
+(odd-one? ["a" "b" "c"]) ;=> false
+(odd-one? ["a" "b" "cc"]) ;=> true
+(odd-one? ["abc" "aa" "xyz" "jj"]) ;=> false
+```
+
+# Idea
+
+### English
 1. convert list of words to list of lengths
 2. convert list of lengthes to a CountTable [ this data structure is a table that counts the occurance of elements]
 
 3&4. check the result CountTable has exactly length of `2` and one of them has repeated `1` time.
 
 
-## فارسی
+### فارسی
 **مرحله 1**:
 لیست کلمات داده شده ره به لیستی از اندازه هر کلمه تبدیل میکنیم
 
@@ -20,7 +35,7 @@
 چک میکنیم که جدول تنها دو عضو داشته باشد و یکی از آن ها تنها یک بار تکرار شده باشد
 
 
-## Data Transformation - مراحل تغییر داده
+### Data Transformation - مراحل تغییر داده
 ```nim
 ["hey", "how", "are", "you", "my", "friend"] # <-- input
 [3, 3, 3, 3, 2, 6] # <-- step 1

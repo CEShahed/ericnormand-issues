@@ -3,7 +3,6 @@ import std/[os, strutils, strformat, rdstdin]
 const
   nimCode = readFile "toolchain/add_issue/main.nim"
   readme = readFile "toolchain/add_issue/readme.md"
-  problem = readFile "toolchain/add_issue/problem.md"
 
 
 proc getIssueInfo: tuple[name: string, number: int, link: string] =
@@ -28,4 +27,3 @@ when isMainModule:
   createDir dir
   writeFile dir/"main.nim", nimCode
   writeFile dir/"readme.md", help
-  writeFile dir/"problem.md", problem

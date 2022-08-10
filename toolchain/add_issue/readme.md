@@ -1,11 +1,14 @@
-# issue <NUMBER> - <NAME>
-[link](<URL>)
+# issue <NUMBER> - <NAME> :: [link](<URL>)
 
-## English
+## Description
 
-## فارسی
+## Idea
+
+### English
+
+### فارسی
 
 
-## Data Transformation - مراحل تغییر داده
+### Data Transformation - مراحل تغییر داده
 ```nim
 ```
