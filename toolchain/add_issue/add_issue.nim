@@ -1,4 +1,4 @@
-import std/[os, strutils, strformat]
+import std/[os, strutils, strformat, rdstdin]
 
 const
   nimCode = readFile "toolchain/add_issue/main.nim"
@@ -6,22 +6,23 @@ const
   problem = readFile "toolchain/add_issue/problem.md"
 
 
-proc getIssueInfo: tuple[name: string, number: int] =
-  echo "issue number? "
-  result.number = parseInt stdin.readLine
-
-  echo "issue name? "
-  result.name = stdin.readLine
+proc getIssueInfo: tuple[name: string, number: int, link: string] =
+  (
+    readLineFromStdin("issue name? "),
+    parseInt readLineFromStdin("issue number? "),
+    readLineFromStdin("issue link? ")
+  )
 
 
 when isMainModule:
   let
-    (name, number) = getIssueInfo()
+    (name, number, link) = getIssueInfo()
     dir = fmt"./issues/i{number}"
     help =
       readme
-      .replace("<1>", $number)
-      .replace("<2>", name)
+      .replace("<NUMBER>", $number)
+      .replace("<NAME>", name)
+      .replace("<URL>", link)
 
 
   createDir dir

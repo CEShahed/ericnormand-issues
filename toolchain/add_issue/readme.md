@@ -1,5 +1,5 @@
-# issue <1> - <2>
-[link](https://ericnormand.me/issues/<1>)
+# issue <NUMBER> - <NAME>
+[link](<URL>)
 
 ## English
 
