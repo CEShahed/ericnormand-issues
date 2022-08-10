@@ -34,7 +34,7 @@ func canMoveImpl(cp: ChessPiece, start, dest: Position): bool =
     abs(start.row - dest.row) == abs(start.col.int - dest.col.int)
 
   of rook:
-    (start.row == dest.row) or (start.col.int == dest.col.int)
+    (start.row == dest.row) or (start.col == dest.col)
 
   of knight:
     let
