@@ -26,7 +26,7 @@ func swapMaxMin(n: Positive): MaxxieMinnie =
   let digits = $n # step 1
 
   for i in 0 .. digits.high-1: # step 2
-    for j in 1 .. digits.high: # step 2
+    for j in i+1 .. digits.high: # step 2
       if (i != 0) or (i == 0 and digits[j] != '0'): # step 2
         let newNumber =  
           swapped(digits, i, j) # step 3
