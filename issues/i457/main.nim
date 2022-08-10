@@ -50,7 +50,7 @@ func canMove(cp: ChessPiece, move: Slice[string]): bool =
   try:
     let
       start = parsePos move.a # step 1
-      dest = parsePos move.b  # step 2
+      dest = parsePos move.b  # step 1
 
     canMoveImpl(cp, start, dest) # step 3 & 4
 
