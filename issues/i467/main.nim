@@ -15,12 +15,12 @@ func isHappy(prev, next, you: int): bool =
 
 # --- main
 func spots(neighbors: seq[int], newMember: int): tuple[happy, unhappy: seq[float]] =
-  for i in 0..neighbors.high-1:
+  for i in 0..neighbors.high-1: # step 1
     let spot = i.toFloat + 0.5
 
-    case isHappy(neighbors[i], neighbors[i+1], newMember):
-    of true: result.happy.add spot
-    of false: result.unhappy.add spot
+    case isHappy(neighbors[i], neighbors[i+1], newMember): # step 2
+    of true: result.happy.add spot # step 3
+    of false: result.unhappy.add spot # step 3
 
 
 # --- tests

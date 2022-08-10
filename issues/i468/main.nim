@@ -22,19 +22,32 @@ func update(result: var MaxxieMinnie, newValue: int) =
 
 # --- main
 func swapMaxMin(n: Positive): MaxxieMinnie =
-  let digits = $n 
   result = (n, n) # default
+  let digits = $n # step 1
 
-  for i in 0 .. digits.high-1:
-    for j in 1 .. digits.high:
-      if (i != 0) or (i == 0 and digits[j] != '0'):
-        result.update parseInt swapped(digits, i, j)
+  for i in 0 .. digits.high-1: # step 2
+    for j in 1 .. digits.high: # step 2
+      if (i != 0) or (i == 0 and digits[j] != '0'): # step 2
+        let newNumber =  
+          swapped(digits, i, j) # step 3
+          .parseInt # step 4
+        
+        result.update newNumber # step 5
+
 
 
 # --- tests
 suite "Helpers":
   test "swapped":
     check swapped("hey", 1, 2) == "hye"
+
+  test "update":
+    var mm = (0, 0)
+    mm.update 2
+    check mm == (2, 0)
+    mm.update -3
+    check mm == (2, -3)
+
 
 suite "Tests":
   test "213":
