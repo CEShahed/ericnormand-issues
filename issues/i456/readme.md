@@ -30,9 +30,29 @@ Write a function that returns nil if they are not equivalent and returns a map o
 
 ### English
 
+1. first we check the lengthes of 2 rythmes
+2. if so, then normalize the rythmes
+3. check normalized of 2 rythmes were the same
+4. is so, make convert table
+
 ### فارسی
+
+**مرحله 1**:
+ابتدا چک میکنیم که آیا دو ریتم اندازه یکسان دارند یا نه
+
+**مرحله 2**:
+اگر اندازه یکسان داشتند، آن دو ریتم را عادی سازی میکنیم
+
+**مرحله 3**:
+چک میکنیم که عادی سازی شده ریتم ها برابر هستند یا نه
+
+**مرحله 4**:
+اگر برابر بودند، جدول تبدیل را ایجاد میکنیم
 
 
 ### Data Transformation - مراحل تغییر داده
 ```nim
+"VFKF", "XALA" # <-- inputs
+"ABCB", "ABCB" # <-- step 2 & 3
+{'V': 'X', 'F': 'A', 'K': 'L'} # <-- step 4 - final
 ```
