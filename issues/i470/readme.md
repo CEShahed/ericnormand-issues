@@ -7,7 +7,7 @@
 2. then we reverse the result sequence of data,
 3. then we re-join that sequence with space in between items. 
 
-## Persian
+## فارسی
 
 **مرحله 1**:
 ابتدا جمله داده شده را به استفاده از فاصله تکه تکه میکنیم، 

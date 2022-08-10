@@ -23,6 +23,7 @@ func spots(neighbors: seq[int], newMember: int): tuple[happy, unhappy: seq[float
     of false: result.unhappy.add spot
 
 
+# --- tests
 suite "Tests":
   test "[1 1]     1":
     check spots(@[1, 1], 1) == (@[0.5], @[])

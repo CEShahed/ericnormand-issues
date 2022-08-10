@@ -33,4 +33,4 @@ Write a function that takes a sequence of integers and an integer. It should ret
 
 **Note**: Inserting a number may make pre-existing numbers unhappy. Ignore them!
 
-# Persian
+# فارسی
