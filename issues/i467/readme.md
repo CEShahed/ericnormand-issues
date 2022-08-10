@@ -3,12 +3,13 @@
 
 ## English
 
-with looping trough neighbors (step 1):
-  2. then compare the `new_member` value to `previous` and `next` neighbor,
-  if the type of `new_member` was as the same as one of `previous` and `next` neighbors,
+1. with looping trough neighbors (step 1):
 
-  3. add the spot to the `happy` list,
-  otherwise add it to the `unhappy` list.
+2. then compare the `new_member` value to `previous` and `next` neighbor,
+if the type of `new_member` was as the same as one of `previous` and `next` neighbors,
+
+3. add the spot to the `happy` list,
+otherwise add it to the `unhappy` list.
 
 
 ## فارسی
