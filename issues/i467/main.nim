@@ -1,12 +1,26 @@
 import std/[unittest]
 
+type NumberKind = enum
+  even, odd
 
 # --- helpers
+func kind(n: int): NumberKind =
+  if n mod 2 == 0: even
+  else: odd
 
+func isHappy(prev, next, you: int): bool =
+  ## returns true is `you` is the same kind as one of `prev` and `next`
+  (prev.kind == you.kind) or
+  (you.kind == next.kind)
 
 # --- main
 func spots(neighbors: seq[int], newMember: int): tuple[happy, unhappy: seq[float]] =
-  discard
+  for i in 0..neighbors.high-1:
+    let spot = i.toFloat + 0.5
+
+    case isHappy(neighbors[i], neighbors[i+1], newMember):
+    of true: result.happy.add spot
+    of false: result.unhappy.add spot
 
 
 suite "Tests":
