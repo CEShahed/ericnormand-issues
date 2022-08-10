@@ -13,8 +13,12 @@ type
 
 
 # --- helpers
+func toDigit(ch: char): int =
+  assert ch in '0' .. '9'
+  ch.ord - '0'.ord
+
 func parsePos(s: string): Position =
-  (Column s[0], Row s[1].ord - '0'.ord)
+  (Column s[0], Row toDigit s[1])
 
 # --- main
 func canMoveImpl(cp: ChessPiece, start, dest: Position): bool =
@@ -44,9 +48,9 @@ func canMoveImpl(cp: ChessPiece, start, dest: Position): bool =
 
 func canMove(cp: ChessPiece, move: Slice[string]): bool =
   try:
-    let 
+    let
       start = parsePos move.a # step 1
-      dest = parsePos move.b # step 2
+      dest = parsePos move.b  # step 2
 
     canMoveImpl(cp, start, dest) # step 3 & 4
 
@@ -56,6 +60,11 @@ func canMove(cp: ChessPiece, move: Slice[string]): bool =
 
 # --- tests
 suite "Helpers":
+  test "toDigit":
+    check toDigit('0') == 0
+    check toDigit('9') == 9
+    check toDigit('6') == 6
+
   test "parsePos":
     check parsePos("A3") == (Column 'A', Row 3)
     check parsePos("C7") == (Column 'C', Row 7)
