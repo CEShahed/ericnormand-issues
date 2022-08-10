@@ -38,8 +38,8 @@ func canMoveImpl(cp: ChessPiece, start, dest: Position): bool =
 
   of knight:
     let
-      dx = start.row - dest.row
-      dy = start.col.int - dest.col.int
+      dx = start.col.int - dest.col.int
+      dy = start.row - dest.row
 
     (dx.abs, dy.abs) in [(2, 1), (1, 2)]
 
