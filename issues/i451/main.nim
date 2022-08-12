@@ -1,5 +1,5 @@
 import std/[tables, unittest]
-import iterrr
+import iterrr # v1.0.1
 
 # --- helpers
 iterator combinations(s: seq[int]): (int, int) =
@@ -18,17 +18,17 @@ func ulam(n: Natural): seq[int] =
     var sequence = @[1, 2]
 
     for _ in 3 .. n:
-      let possibleSums = # Step 1
-        combinations(sequence) |>
-        map((a, b) => a+b)
-        .filter(it > sequence[^1])
-        .toCountTable()
+      let possibleSums = 
+        combinations(sequence) |> # step 1.1
+        map((a, b) => a+b) # step 1.2
+        .filter(it > sequence[^1]) # step 1.3
+        .toCountTable() # step 1.4
 
       sequence.add: # step 3
-        possibleSums.pairs |> # step 2
-        filter((n, r) => r == 1)
-        .map((n, _) => n)
-        .min()
+        possibleSums.pairs |> # step 2.1
+        filter((_, r) => r == 1) # step 2.2
+        .map((s, _) => s) # step 2.3
+        .min() # step 2.4
 
     sequence
 
