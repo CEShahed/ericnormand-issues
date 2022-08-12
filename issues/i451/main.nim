@@ -15,7 +15,7 @@ func ulam(n: Natural): seq[int] =
   of 1: @[1]
   of 2: @[1, 2]
   else:
-    var sequence = @[1, 2]
+    var sequence = ulam 2
 
     for _ in 3 .. n:
       let possibleSums = 
