@@ -43,6 +43,12 @@ Your task is to create a lazy Ulam sequence.
 
 ### English
 
+with initial value of sequence `@[1, 2]`, for (n-2) times we do these steps.
+
+1. save all possible sums with their repeatations
+2. get minimum of sums that repeated only once
+3. add result of step 2 into the result sequence
+
 ### فارسی
 
 

@@ -15,21 +15,20 @@ func ulam(n: Natural): seq[int] =
   of 1: @[1]
   of 2: @[1, 2]
   else:
-    var
-      sequence = @[1, 2]
-      possibleSums: CountTable[int]
+    var sequence = @[1, 2]
 
     for _ in 3 .. n:
-      for (a, b) in combinations(sequence):
-        possibleSums.inc a+b
+      let possibleSums = # Step 1
+        combinations(sequence) |>
+        map((a, b) => a+b)
+        .filter(it > sequence[^1])
+        .toCountTable()
 
-      sequence.add:
-        possibleSums.pairs |>
-        filter[n, r](r == 1 and n > sequence[^1])
-        .map[n, _](n)
+      sequence.add: # step 3
+        possibleSums.pairs |> # step 2
+        filter((n, r) => r == 1)
+        .map((n, _) => n)
         .min()
-
-      reset possibleSums
 
     sequence
 
