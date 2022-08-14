@@ -9,5 +9,8 @@ func fn(): =
   discard
 
 # --- tests
-suite "Tests":
+suite "helpers":
+  discard
+
+suite "tests":
   discard
