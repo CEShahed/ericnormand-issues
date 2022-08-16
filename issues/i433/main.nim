@@ -2,9 +2,9 @@ import std/[tables, sequtils, unittest]
 
 
 # --- helpers
-type 
+type
   Vowel = enum
-    o,a, i, u, e
+    o, a, i, u, e
 
   SeqTable[K, V] = Table[K, seq[V]]
 
@@ -12,12 +12,12 @@ func incl[K, V](t: var SeqTable[K, V], key: K, value: V) =
   t.withValue key, wrapper:
     wrapper[].add value
   do:
-    t[key]= @[value]
+    t[key] = @[value]
 
 
-func vowels(word: string): set[Vowel] = 
+func vowels(word: string): set[Vowel] =
   for ch in word:
-    result.incl: 
+    result.incl:
       case ch:
       of 'o', 'O': o
       of 'a', 'A': a
@@ -37,11 +37,12 @@ func vowelFamilies(words: seq[string]): seq[seq[string]] =
 
 # --- tests
 suite "tests":
-  test "empty": 
+  test "empty":
     check vowelFamilies(@[]).len == 0
 
-  test "1": 
-    check vowelFamilies(@["hello", "vowel", "fox", "cot", "hat", "cat"]) == @[@["hello", "vowel"], @["fox", "cot"], @["hat", "cat"]]
+  test "1":
+    check vowelFamilies(@["hello", "vowel", "fox", "cot", "hat", "cat"]) == @[@[
+        "hello", "vowel"], @["fox", "cot"], @["hat", "cat"]]
 
-  test "2": 
+  test "2":
     check vowelFamilies(@["tree", "tent", "blanket"]) == @[@["tree", "tent"], @["blanket"]]
