@@ -12,5 +12,5 @@ func fn(): =
 suite "helpers":
   discard
 
-suite "tests":
+suite "main":
   discard

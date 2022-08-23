@@ -4,12 +4,14 @@ const
   nimCode = readFile "toolchain/add_issue/main.nim"
   readme = readFile "toolchain/add_issue/readme.md"
 
+template input(msg): untyped =
+  readLineFromStdin msg
 
 proc getIssueInfo: tuple[name: string, number: int, link: string] =
   (
-    readLineFromStdin("issue name? "),
-    parseInt readLineFromStdin("issue number? "),
-    readLineFromStdin("issue link? ")
+    input("issue name? "),
+    parseInt input("issue number? "),
+    input("issue link? ")
   )
 
 
