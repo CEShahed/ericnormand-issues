@@ -13,7 +13,7 @@ func display(sentence: string, view: Slice[int]): string =
 # --- main
 iterator scroll(sentence: string, width: int): string =
   for padding in countdown(width, -sentence.len):
-    yield sentence.display (-padding .. -padding+width-1)
+    yield sentence.display (-padding ..< -padding+width)
 
 func scroller(sentence: string, width: int): seq[string] =
   toseq scroll(sentence, width)
