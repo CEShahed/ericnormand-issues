@@ -1,31 +1,37 @@
-import std/[unittest, strutils, sequtils, stats, math]
-
+import std/[unittest, strutils, strformat, stats, math]
 
 type RGB = tuple
   r, g, b: int
 
 # --- helpers
 
-func parseRGB(hexColor: string): RGB =
+func parseHexColor(hexColor: string): RGB =
   (parseHexInt hexColor[1..2], parseHexInt hexColor[3..4], parseHexInt hexColor[5..6])
 
+func toHexColor(r, g, b: int): string =
+  template h(n): untyped = toHex(n, 2)
+  fmt"#{h r}{h g}{h b}"
+
 # --- main
+
 func mix(hexColors: seq[string]): string =
-  let
-    rgbs = hexColors.map parseRGB
-    rs = rgbs.mapit it.r
-    gs = rgbs.mapit it.g
-    bs = rgbs.mapit it.b
+  var acc = (newseq[int](), newseq[int](), newseq[int]())
+  
+  for hc in hexColors:
+    let (r, g, b) = parseHexColor hc
+    acc[0].add r
+    acc[1].add g
+    acc[2].add b
 
-  template hex(ns): untyped =
-    toHex(toInt floor mean ns, 2)
+  template normal(numbers): untyped =
+    toInt floor mean numbers
 
-  '#' & hex(rs) & hex(gs) & hex(bs)
+  toHexColor normal acc[0], normal acc[1], normal acc[2]
 
 # --- tests
 suite "helpers":
-  test "parseRGB":
-    check parseRGB("#ff0a12") == (255, 10, 18)
+  test "parseHexColor":
+    check parseHexColor("#ff0a12") == (255, 10, 18)
 
 suite "main":
   test "#FFFFFF #000000":
