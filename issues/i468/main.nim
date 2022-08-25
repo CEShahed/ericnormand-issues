@@ -49,7 +49,7 @@ suite "Helpers":
     check mm == (2, -3)
 
 
-suite "Tests":
+suite "tests":
   test "213":
     check swapMaxMin(213) == (312, 123)
 

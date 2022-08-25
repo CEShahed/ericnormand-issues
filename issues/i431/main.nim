@@ -22,7 +22,7 @@ func clusters(s: string): seq[string] =
       if depth == empty:
         result.add s[anchor .. i]
 
-    else: 
+    else:
       raise newException(ValueError, "invalid char")
 
 
@@ -42,3 +42,6 @@ suite "main":
 
   test "(()())()(())":
     check clusters("(()())()(())") == @["(()())", "()", "(())"]
+
+  test "{()[]}[][]{()}":
+    check clusters("{()[]}[][]{()}") == @["{()[]}", "[]", "[]", "{()}"]

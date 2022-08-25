@@ -16,7 +16,7 @@ func applyBs(s: string): string =
   cast[string](acc)
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "abc#":
     check applyBs("abc#") == "ab"
 

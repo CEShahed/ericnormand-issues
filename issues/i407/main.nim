@@ -5,7 +5,7 @@ type
   Point = tuple
     x, y: int
 
-  Geomery = Slice[Point]
+  Geomery = Slice[Point] # top-left .. bottom-right
 
 # --- helpers
 func intersectionSize(a, b: Slice[int]): int =

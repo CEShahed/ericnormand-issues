@@ -26,7 +26,7 @@ func rearrange(sentence: string): string =
     newSentence.join " " # step 5
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "World2! He1llo,":
     check rearrange("World2! He1llo,") == "Hello, World!"
 

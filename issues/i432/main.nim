@@ -35,19 +35,19 @@ suite "reversedAscii":
   test "A .. Z":
     check reversedAscii('D') == 'W'
 
-  test "not alphabet":
+  test "not an alphabet":
     check reversedAscii('3') == '3'
 
 suite "main":
-  test "":
+  test "empty":
     check atbash("") == ""
 
-  test "hello":
+  test "'hello'":
     check atbash("hello") == "svool"
 
-  test "Clojure":
+  test "'Clojure'":
     check atbash("Clojure") == "Xolqfiv"
 
-  test "Yo!":
+  test "'Yo!'":
     check atbash("Yo!") == "Bl!"
 

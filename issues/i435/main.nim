@@ -18,7 +18,7 @@ func delimited(sentence: string): string =
   
 
 # --- tests
-suite "Tests":
+suite "test":
   test "ffdsfuiofl":
     check delimited("ffdsfuiofl") == "fuiof"
 

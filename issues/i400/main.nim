@@ -16,7 +16,7 @@ func toHexColor(r, g, b: int): string =
 
 func mix(hexColors: seq[string]): string =
   var acc = (newseq[int](), newseq[int](), newseq[int]())
-  
+
   for hc in hexColors:
     let (r, g, b) = parseHexColor hc
     acc[0].add r

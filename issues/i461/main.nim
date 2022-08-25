@@ -25,7 +25,7 @@ func findPrimes(number: int): seq[int] =
   sort result # step 5
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "2":
     check findPrimes(2) == @[2]
 

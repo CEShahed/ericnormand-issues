@@ -6,7 +6,7 @@ func allPresent(bigrams: seq[string], sentence: string): bool =
   bigrams.allIt it in sentence
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "street": 
     check allPresent(@["st", "tr"], "street") == true
 

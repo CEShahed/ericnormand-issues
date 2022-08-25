@@ -70,7 +70,7 @@ suite "Helpers":
     check parsePos("C7") == (Column 'C', Row 7)
     check parsePos("H5") == (Column 'H', Row 5)
 
-suite "Tests":
+suite "tests":
   test "pawn :: 'A2' => 'A3'":
     check canMove(pawn, "A2".."A3") == true
 

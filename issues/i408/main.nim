@@ -1,7 +1,8 @@
 import std/[unittest, options, strutils, sequtils]
 
 
-# --- main
+# helpers
+
 func len(i: Natural): Positive =
   if i < 10: 1
   elif i < 100: 2
@@ -19,6 +20,8 @@ func len(i: Natural): Positive =
   elif i < 100000000000000: 14
   elif i < 1000000000000000: 15
   else: 0
+
+# --- main
 
 func matchConsecutive(s: string, startIndex: int, expectNext: int): bool = 
   s[startIndex ..< (startIndex + len expectNext)].parseInt == expectNext
@@ -39,7 +42,6 @@ func consecImpl(digits: string): Option[Slice[int]] = # first..last
         inc n
 
       else: break
-
 
 func consec(digits: string): Option[seq[int]] =
   if digits.len <= 1:

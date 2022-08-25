@@ -13,7 +13,7 @@ func consec(s: seq[int]): Option[seq[int]] =
     result = some ss
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "[]":
     check consec(@[]).get.len == 0 # trivially true
 

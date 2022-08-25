@@ -12,7 +12,7 @@ func oddOne(words: openArray[string]): bool =
   (1 in wordsLen.values.toseq) # step 4
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "a b c":
     check oddOne(["a", "b", "c"]) == false
 

@@ -24,7 +24,7 @@ func spots(neighbors: seq[int], newMember: int): tuple[happy, unhappy: seq[float
 
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "[1 1]     1":
     check spots(@[1, 1], 1) == (@[0.5], @[])
 

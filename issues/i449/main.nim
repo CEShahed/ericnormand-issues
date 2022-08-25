@@ -19,7 +19,7 @@ func phrases(size: Positive, sentence: string): seq[string] =
 
     if acc.joinLen > size:
       discard acc.pop
-      
+
       final
 
       if word.len <= size:
@@ -29,7 +29,13 @@ func phrases(size: Positive, sentence: string): seq[string] =
 
 
 # --- tests
-suite "Tests":
+suite "helpers":
+  test "joinLen":
+    check:
+      joinLen(@["hey", "my", "name", "is", "hamid"], " ") == len "hey my name is hamid"
+      joinLen(@["12", "3", "44", "55", "6"], "++") == len "12++3++44++55++6"
+
+suite "tests":
   test "10":
     check phrases(10, "she sells sea shells by the sea shore") == @["she sells",
         "sea shells", "by the sea", "shore"]

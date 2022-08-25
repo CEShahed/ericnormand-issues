@@ -33,7 +33,7 @@ func ulam(n: Natural): seq[int] =
     sequence
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "2":
     check ulam(2) == @[1, 2]
 

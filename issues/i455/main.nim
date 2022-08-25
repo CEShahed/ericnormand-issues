@@ -22,7 +22,7 @@ func completes(minor, major: string): bool =
     false
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "'a' 'autocomplete'":
     check completes("a", "autocomplete") == true
 

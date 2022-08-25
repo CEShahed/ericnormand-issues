@@ -36,6 +36,9 @@ func vowelFamilies(words: seq[string]): seq[seq[string]] =
   toseq vowelsLookup.values
 
 # --- tests
+suite "helpers":
+  discard
+
 suite "tests":
   test "empty":
     check vowelFamilies(@[]).len == 0

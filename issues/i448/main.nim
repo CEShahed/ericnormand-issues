@@ -27,7 +27,7 @@ func rpol(reversePolishExpr: string): int =
 
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "1": 
     check rpol("1") == 1
     

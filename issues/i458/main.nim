@@ -13,7 +13,7 @@ func diff(a, b: string): char =
   
 
 # --- tests
-suite "Tests":
+suite "tests":
   test "'' 'j'":
     check diff("", "j") == 'j'
 
