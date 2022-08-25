@@ -3,18 +3,12 @@ import std/[unittest]
 
 type Map = seq[seq[int]]
 
-# --- main
-func neighbours(map: Map, row, col: int): range[0..4] =
-  const moves = [
-    (0, +1),
-    (0, -1),
-    (+1, 0),
-    (-1, 0)]
+# --- helpers
 
-  for (dx, dy) in moves:
-    if (col+dx in 0..map[row].high) and (row+dy in 0..map.high):
-      if map[row+dy][col+dx] == 1:
-        inc result
+func width(map: Map): int = map[0].len
+func height(map: Map): int = map.len
+
+# --- main
 
 func relativePerimeter(neighbours: range[0..4]): range[0..4] =
   case neighbours:
@@ -24,15 +18,28 @@ func relativePerimeter(neighbours: range[0..4]): range[0..4] =
   of 3: 1
   of 4: 0
 
-func width(map: Map): int = map[0].len
-func height(map: Map): int = map.len
+func neighbours(map: Map, row, col: int): range[0..4] =
+  const moves = [
+    (0, +1),
+    (0, -1),
+    (+1, 0),
+    (-1, 0)]
+
+  for (dx, dy) in moves:
+    let
+      x = col+dx
+      y = row+dy
+
+    if (x in 0..<map.width) and (y in 0..<map.height):
+      if map[y][x] == 1:
+        inc result
 
 func perimeterMap(map: Map): Map =
   result = map
 
   for row in 0 ..< map.height:
     for col in 0 ..< map.width:
-      result[row][col] = 
+      result[row][col] =
         if map[row][col] == 1:
           relativePerimeter neighbours(map, row, col)
         else:
@@ -47,7 +54,15 @@ func perimeter(map: Map): int =
 
 # --- tests
 suite "helpers":
-  discard
+  let map = @[
+    @[1, 1, 0],
+    @[1, 1, 0]]
+
+  test "width":
+    check width(map) == 3
+
+  test "height":
+    check height(map) == 2
 
 suite "main":
   test "simple":
