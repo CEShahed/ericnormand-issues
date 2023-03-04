@@ -27,7 +27,7 @@ Any contiguous string of digits is a number. That means that spaces, periods, an
 ## مثال 1
 ### ورودی
 ```
-Hey my name is Hamid and I have 4 Dollers! This is almost equals to 2,000,000 Rials. With this amound of money I can buy 10 snacks, as snacks are almost 200,000 Rials. 
+Hey my name is Hamid and I have 4 Dollers! This is almost equals to 2,000,000 Rials. With this amound of money I can buy 10 snacks, as snacks are almost 20,000 Tomans. 
 ```
 
 ### خروجی
